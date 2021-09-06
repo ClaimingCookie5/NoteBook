@@ -30,21 +30,21 @@ function expect(actual) {
       if(actual === expected) {
         console.log(".") 
       } else {
-        console.log(`expected ${actual} to equal ${expected}`)
+        throw new Error(`expected ${actual} to equal ${expected}`)
       }
     },
     notToEqual: function (expected) {
       if(actual !== expected) {
         console.log(".")
       } else {
-        console.log(`expected ${actual} to equal ${expected}`)
+        throw new Error(`expected ${actual} to equal ${expected}`)
       }
     },
     toHaveSize: function (expected) {
       if(actual.length === expected) {
         console.log(".")
       } else {
-        console.log(`expected ${actual.length} to equal ${expected}`)
+        throw new Error(`expected ${actual} to equal ${expected}`)
       }
     }
   }
