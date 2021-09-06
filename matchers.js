@@ -23,3 +23,29 @@
     }
   }
 })
+
+function expect(actual) {
+  return {
+    toEqual: function (expected) {
+      if(actual === expected) {
+        console.log(".") 
+      } else {
+        console.log(`expected ${actual} to equal ${expected}`)
+      }
+    },
+    notToEqual: function (expected) {
+      if(actual !== expected) {
+        console.log(".")
+      } else {
+        console.log(`expected ${actual} to equal ${expected}`)
+      }
+    },
+    toHaveSize: function (expected) {
+      if(actual.length === expected) {
+        console.log(".")
+      } else {
+        console.log(`expected ${actual.length} to equal ${expected}`)
+      }
+    }
+  }
+}
