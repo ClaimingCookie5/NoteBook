@@ -57,3 +57,12 @@ description('It is expected display the abbreviated note');
 notebook.saveNote(message1);
 expect(notebook.abbreviatedText()).toContain("If you're visiting t...");
 wipeClean();
+
+console.log("********************")
+
+description('It is expected display multiple abbreviated notes');
+notebook.saveNote(message);
+notebook.saveNote(message1);
+expect(notebook.abbreviatedText()).toContain("If you're visiting t...");
+expect(notebook.abbreviatedText()).toContain("I need to buy banana...");
+wipeClean();
