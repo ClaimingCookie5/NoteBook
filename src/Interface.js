@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // one route that connects the textarea and passes it as argument of save note
 
   document.querySelector('#submit').addEventListener('click', () => {
-    noteBook.saveNote();
+  let note = document.querySelector('#create-note').innerText 
+    noteBook.saveNote(note);
+    noteBook.abbreviatedText();
   });
 
   // returns all elements abbreviated - should be linked to href
