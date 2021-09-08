@@ -4,17 +4,15 @@ class NoteBook {
   }
 
   // saveNote will take an argument which will pass it to the new Note class
-  saveNote() {
-    this.noteList.push(
-      "If you're visiting this page, you're likely here because you're searching for a random sentence."
-    );
+  saveNote(description) {
+    this.noteList.push(new Note(description));
   }
 
   fullText(index) {
-    return this.noteList[index]; //.description - add this in when calling Note Object
+    return this.noteList[index].description;
   }
 
   abbreviatedText() {
-    return this.noteList.map((note) => `${note.substring(0, 20)}...`);
+    return this.noteList.map((note) => `${note.description.substring(0, 20)}...`);
   }
 }
