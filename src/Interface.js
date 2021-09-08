@@ -1,12 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const noteBook = new NoteBook();
-  noteBook.saveNote();
 
+  updateList = () => {
+    noteBook.abbreviatedText();
+  }
+  const noteBook = new NoteBook();
+
+  console.log(noteBook);
+  
+  updateList();
   // one route that connects the textarea and passes it as argument of save note
 
   document.querySelector('#submit').addEventListener('click', () => {
-  let note = document.querySelector('#create-note').innerText 
-    noteBook.saveNote(note);
+    let note = document.querySelector('#create-note').value;
+    
+    noteBook.saveNote(note)
+    console.log(noteBook)
     noteBook.abbreviatedText();
   });
 
