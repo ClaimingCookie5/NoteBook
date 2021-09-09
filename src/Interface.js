@@ -4,53 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
     noteBook.abbreviatedText();
   }
   const noteBook = new NoteBook();
-  let idSelect = 0;
+
+  console.log(noteBook);
 
   addListTag = () => {
     let list = document.querySelector('#list-container');
     let li = document.createElement('li');
-    //let link = document.createElement('a');
+    let link = document.createElement('a');
     let noteList = noteBook.abbreviatedText();
     noteList.forEach(note => {
       for (let i = 0; i <= noteList.length; i++) {
-        let link = document.createElement('a');
+        link.setAttribute('id', `${i - 1}`);
         link.href = `#${note}`;
-        link.setAttribute('id', `${i}`) //i starts at 1. NOT 0
         link.innerText = note;
         li.appendChild(link);
         list.appendChild(li);
-        link.addEventListener('click', () => {
-          idSelect = i
-          console.log(idSelect);
-        });
       }
     });
   }
-
-
-  // const result = document.createElement('h1')
-  // document.querySelector('body').appendChild(result)
-
-  // addListTag = () => {
-  //   let noteList = noteBook.abbreviatedText();
-
-  //   for (let i = 0; i <= noteBook.noteList.length; i++) {
-  //     let link = document.createElement('a');
-  //     link.href = noteBook.abbreviatedText[i]
-  //     link.setAttribute('id', `${i}`)
-  //     link.addEventListener('click', () => {
-  //       idSelect = i
-  //       console.log(idSelect);
-  //       });
-  //     result.appendChild(link)
-  //   }
-  // }
   
-
-
-
-
   updateList();
+
   // one route that connects the textarea and passes it as argument of save note
   document.querySelector('#submit').addEventListener('click', () => {
     let note = document.querySelector('#create-note').value;
@@ -58,6 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
     addListTag()
     document.querySelector('#create-note').value = "";
   });
+
+  // gets full note from link
+  document.getElementById('list-container').addEventListener('click', (element) => {
+    if (element.target && element.target.nodeName =='A') {
+      console.log(element.target.id)
+      document.getElementById("display-full-note").innerText = noteBook.fullText(element.target.id);
+    }
+  })
+
+
 
   // returns all elements abbreviated - should be linked to href
   // document.querySelector('#display-note-list').innerText =
