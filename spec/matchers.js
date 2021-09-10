@@ -60,15 +60,3 @@ function expect(actual) {
     },
   };
 }
-
-// expect([1, 3, 7]).toContain(3);
-
-// describe('Note', () => {
-// it('checks if value is in array', () => {
-// expect([1, 3, 7]).toContain(3)
-// });
-// })();
-// })();
-// check 'actual' is in the array by iterating to find the value
-// return message if value is found
-// return message if value is not found

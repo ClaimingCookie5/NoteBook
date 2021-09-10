@@ -5,7 +5,11 @@ class NoteBook {
 
   // saveNote will take an argument which will pass it to the new Note class
   saveNote(description) {
-    this.noteList.push(new Note(description));
+    if (description.length === 0) {
+      throw new Error('Please enter text to complete action');
+    } else {
+      this.noteList.push(new Note(description));
+    }
   }
 
   fullText(index) {

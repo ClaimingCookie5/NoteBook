@@ -1,4 +1,146 @@
-ul,
-li {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+:root {
+  --ff-primary: 'Source Sans Pro', sans-serif;
+  --ff-secondary: 'Source Sans Pro', sans-serif;
+
+  --fw-reg: 300;
+  --fw-bold: 900;
+
+  --clr-light: #ffffff;
+  --clr-dark: #112D4E;
+  --clr-theme2: #DBE2EF;
+  --clr-theme1: #3F72AF;
+
+  --fs-h1: 3rem;
+  --fs-h2: 2rem;
+  --fs-h3: 1rem;
+
+  --fs-body: 1rem;
+
+  --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+        0.125em 0.125em 0.25em rgba(0,0,0,.15),
+        0.0625em 0.0625em 0.125em rgba(0,0,0,.075);
+}
+/* General Styles */
+
+body {
+  background: var(--clr-light);
+  color: var(--clr-dark);
+  margin: 0;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  align-content: center;
+}
+
+section {
+  padding: 5em 3em;
+}
+
+/* Typography */
+
+h1,
+h2 {
+  line-height: 1.1;
+  margin: 0;
+}
+
+h1 { font-size: var(--fs-h1);}
+h3 { font-size: var(--fs-h3);}
+textarea { font-size: var(--fs-h3);}
+
+textarea { font-family: var(--ff-primary);}
+
+strong {
+  font-weight: var(--fw-bold);
+}
+
+.section__title {
+  text-align: center;
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-reg);
+}
+
+.section__subtitle--intro {
+  padding: .05em 1em;
+  font-size: var(--fs-h3);
+  
+}
+
+ul, ol, li, a {
   list-style: none;
+  text-decoration: none;
+  color: var(--clr-dark);
+  text-align: center;
+}
+
+ul {
+  margin: inherit;
+  height: 5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#box {
+  align-content: inherit;
+  text-align: center;
+  margin: 0;
+}
+
+/* Text area styles */
+
+#create-note {
+  width: 60%;
+  height: 10rem;
+  resize: none;
+  outline: none;
+}
+
+
+.button {
+  align-self: inherit;
+  width: fit-content;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+}
+
+.button:hover {
+  background-color: #008000;
+  color: var(--clr-light);
+}
+
+/* Display note area styles */
+
+#display-area {
+  margin: 1rem 1rem 0;
+  padding-left: 1rem;
+  text-align: left;
+  border-radius: 5px;
+  border-top: 2px solid var(--clr-dark);
+  border-bottom: 2px solid var(--clr-dark);
+
+}
+
+#dont-display-area {
+  display: none;
+}
+
+#close-note {
+  background-color: var(--clr-dark);
+  display: none;
+}
+
+#close-note:hover {
+  background-color: red;
+  color: white;
+}
+
+#display-ful-note {
+  text-align: left;
 }

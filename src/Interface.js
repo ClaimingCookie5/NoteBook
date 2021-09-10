@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const noteBook = new NoteBook();
 
+  toggleButtonDisplay = (cssStyle) => {
+    document.getElementById('close-note').style.display = cssStyle;
+  }
+
   addListTag = () => {
     let list = document.querySelector('#list-container');
     let li = document.createElement('li');
@@ -30,12 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('list-container').addEventListener('click', (element) => {
     if (element.target && element.target.nodeName =='A') {
       document.getElementById("display-full-note").innerText = noteBook.fullText(element.target.id);
+      document.getElementById("dont-display-area").setAttribute('id', 'display-area')
+      toggleButtonDisplay('block');
     }
   })
 
+
+  
   // closes the open note
   document.getElementById('close-note').addEventListener('click', () => {
     document.getElementById("display-full-note").innerText = "";
+    document.getElementById("display-area").setAttribute('id', 'dont-display-area')
+    toggleButtonDisplay('none');
   })
 
 });
