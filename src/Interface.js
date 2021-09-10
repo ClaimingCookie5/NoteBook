@@ -2,31 +2,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const noteBook = new NoteBook();
 
+  console.log(noteBook.noteList)
+
   toggleButtonDisplay = (cssStyle) => {
     document.getElementById('close-note').style.display = cssStyle;
   }
 
-  addListTag = () => {
+  addListItem = (note) => {
+    note = document.querySelector('#create-note').value;
     let list = document.querySelector('#list-container');
     let li = document.createElement('li');
     let link = document.createElement('a');
-    let noteList = noteBook.abbreviatedText();
-    noteList.forEach(note => {
-      for (let i = 0; i <= noteList.length; i++) {
-        link.setAttribute('id', `${i - 1}`);
-        link.href = `#${note}`;
-        link.innerText = note;
-        li.appendChild(link);
-        list.appendChild(li);
-      }
-    });
+    link.href = '#';
+    link.setAttribute('id', `${noteBook.noteList.length}`);
+    link.innerText = note.substring(0, 20);
+    li.appendChild(link);
+    list.appendChild(li);
   }
 
   // one route that connects the textarea and passes it as argument of save note
-  document.querySelector('#submit').addEventListener('click', () => {
-    let note = document.querySelector('#create-note').value;
-    noteBook.saveNote(note)
-    addListTag()
+  document.querySelector('#submit').addEventListener('click', (note) => {
+    note = document.querySelector('#create-note').value;
+    addListItem();
+    noteBook.saveNote(note);
     document.querySelector('#create-note').value = "";
   });
 
