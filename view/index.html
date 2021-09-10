@@ -21,18 +21,25 @@
       <section id="title_box">
         <h1 id="title">note space</h1>
       </section>
-      <section id="create_note_box">
-        <h2>create a new note:</h2>
-        <textarea id="create-note" placeholder="Your note"></textarea><br />
-        <button id="submit">create</button>
-      </section>
-      <section id="full_note_box">
+
+      <div id='input_area'>
+        <section id="create_note_box">
+          <h2>create a new note:</h2>
+          <textarea id="create-note" placeholder="Your note" autofocus></textarea><br />
+          <button id="submit">create</button>
+        </section>
+        <section id="list_note_box">
+          <ul id="list-container"></ul>
+        </section>
+
+    </div>
+
+      <section id="hide_full_note_box">
+        <button id="close-note">X</button>
         <h4 id="display-full-note"></h4>
-        <button id="close-note">close note</button>
+        
       </section>
-      <section id="list_note_box">
-        <ul id="list-container"></ul>
-      </section>
+
     </section>
   </body>
 </html>
